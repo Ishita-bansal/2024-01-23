@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo"></p>
+
+  <input type="number" id="getNumber" value="30">
+<button onclick="check()">test</button>
+
+    <script>
+    // const cars = new Array("Saab" , "Volvo" , "BMW")
+    // cars[1]="opel";
+    const fruits = ["Banana" , "Orange" , "Apple" , "Mango"];
+    let flen = fruits.length;
+
+    let text = " ";
+    for(let i = 0; i<flen ; i++){
+        text = text  +  fruits[i] + " ";
+    }
+    document.getElementById("demo").innerHTML = fruits.toString();
+
+
+    const ages = [32,33,34,16,15,35,23,25,28,30,44];
+//     const newArr = ages.filter((items,index)=>{
+//         if(items>=20 && items<=30){
+//             return items;
+//         }
+//     });
+//   console.log(newArr);
+
+//   function agecheck(){
+//   const newArr2 = ages.filter((items,index)=>{
+//         if(items> document.getElementById("getNumber").value){
+//             return items;
+//         }
+//     });
+//     return newArr2;
+// //   console.log(newArr2);
+//   }
+  
+//   console.log(agecheck())
+//   function check(){
+//     document.getElementById("demo").innerHTML = agecheck();
+//   }
+// const arr = [10,20,20,30,30,30,40,40,50]
+// let obj = {};
+// for(let i = 0 ; i < arr.length ; i++){
+//   if(obj[arr[i]]){
+//     obj[arr[i]]++;
+//   }
+//   else{
+//     obj[arr[i]] = 1;
+//   }
+  
+// }
+// console.log(obj);
+// Object.keys(obj).forEach((key)=>{
+//   if(obj[key]>1){
+//     console.log(`${key} is repeated ${obj[key]} times`)
+//   }
+// });
+
+// const arr=[10,20,20,30,30,30,40];
+// let arr2 = [];
+// for(let i = 0 ; i<arr.length ; i++){
+//      if(arr2.includes(arr[i])){
+//        continue;
+//      }else{
+//       arr2.push(arr[i]);
+//      }
+// }
+// console.log(arr2);
+
+// const arr = [10,20,30,[40,50],60,[70,[80,90]]]
+// let result = arr.flat();
+// let arr2 = result.flat(6);
+// console.log(arr2);
+
+// const arr = [10,20,30,[40,50],60,[70,[80,90]]]
+
+// function print(arr , index){
+//  console.log(arr, index);
+//    if(index == arr.length){
+//     return;
+//    }
+//    for(let i = index ; i<arr.length ; i++){
+//      if(typeof(arr[i]) === "object"){
+//     print(arr[i] , i);
+//      }
+//     // console.log(arr[i]);
+//    }
+// }
+// print(arr,0);
+
+// const myfunction = function(a,b){
+//   return a*b;
+// }
+// let x = myfunction(4,3);
+// console.log(x);
+
+// const z = (x,y) =>{
+//      return x*y;
+// }
+// console.log(z(5,5));
+
+// function myFunction(x,y){
+//   if(y === undefined){
+//     y = 2;
+//   }
+//   console.log(x * y);
+// }
+// myFunction(2);
+// function sum(...args){
+//   let sum=0;
+//   for(let arg of args) 
+//     sum = sum + arg;
+//     return sum;
+// }
+// let x = sum(4, 9, 16, 25, 29, 100, 66, 77);
+// console.log(x);
+
+// function findmax(){
+//       let max = -Infinity;
+//       for(let i = 0 ; i < arguments.length ; i++){
+//         if(arguments[i]>max){
+//           max =arguments[i];
+//         }
+//       }
+//       return max;
+// }
+// document.getElementById("demo").innerHTML = findmax(1,3,10,4,5,8);
+
+// const date = new Date();
+// console.log(date);
+// console.log(date.getDay());
+// console.log(date.getMonth());
+// date.toLocaleString('default',{
+//     weekday: "long",
+//     timeZone: '',
+// })
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
+        //object created using new() keyword
+            const person = new Object();
+        // insert new key value pairs
+            person.name = "Ishita";
+            person.lname = "bansal";
+            person.age = "22";
+            person.class = "btech";
+       // delete key value from the object
+         delete person.age;
+    //restriced to insert the new key pair into object
+         Object.seal(person);
+         person.job= "developer";
+        
+     
+    // restricted to delete the key value pair
+    Object.freeze(person);
+     delete person.class;
+    
+
+      //  object created using literals
+         const person2 = {
+            name:"jyoti",
+            age:"22",
+            class:"bcom",
+         };
+          //add properties
+          person2["lname"]="goyal";
+         person2.job = "CA";
+
+         //delete peoperty
+         delete person2.age;
+         
+           
+// document.getElementById("demo").innerHTML = person.name + ", " + person.age  + " ,"+ person.class ;
+
+let txt = "";
+for(let x in person){
+    txt =txt + person[x] + " ";
+};
+document.getElementById("demo").innerHTML = txt;
+         // object methods
+
+         const person3 = {
+            firstName: "John",
+            lastName: "Doe",
+            id: 5566,
+            carowner:{
+                firstname:"tim",
+                lastName:"DOE",
+                age:"22"
+            },
+            fullName:function(){
+                return this.firstName + "" + this.lastName;
+            }
+         };
+
+        
+    </script>
+</body>
+</html>

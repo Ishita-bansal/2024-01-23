@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=S, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <table id="tabledata" onsubmit="submitTable(event)">
+    <thead>
+        <tr>
+            <th id="data1">Name</th>
+            <th id="data2">Roll no</th>
+            <th id="data3">qualification</th>
+            <th id="data4">marks</th>
+        </tr>
+    </thead>
+    <tbody>
+      
+    </tbody>
+
+    </table>
+    
+    <div id="userData" style="display:none;">
+  <p><Strong>Name</Strong><span id="data1"></span></p>
+  <p><strong>Roll no</strong><span id="data2"></span></p>
+  <p><strong>qualification</strong><span id="data3"></span></p>
+  <p><strong>marks</strong><span id="data4"></span></p>
+    </div>
+
+     <script>
+           function submitTable(event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Get form input values
+      var Name = document.getElementById("data1").value;
+      var rollno = document.getElementById("data2").value;
+      var qualification = document.getElementById("data3").value;
+      var marks = document.getElementById("data4").value;
+
+
+      document.getElementById("data1").textContent = Name;
+      document.getElementById("data2").textContent = rollno;
+      document.getElementById("data3").textContent = qualification;
+      document.getElementById("data4").textContent = marks;
+      document.getElementById("userData").style.display = "block";
+           }
+     </script>
+
+</body>
+</html>
