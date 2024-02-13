@@ -1,122 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Registration Form</title>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
-<body>
- <div class="main-container">
-  <div class="input-container">
-  <form id="registrationForm" onsubmit="submitForm(event)">
-    <div class="container">
-       <div class="formcontainer">
-        <h2>Registration Form</h2>
-        
-    <div class="border">
-          <div class="dot"></div>
-      <input type="text" id="username" name="username" placeholder="Username">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="input-container">
+        <form id="registrationForm" onsubmit="submitForm(event)">
+          <div class="container">
+            <div class="formcontainer">
+              <h2>Registration Form</h2>
+
+              <div class="border">
+                <div class="dot"></div>
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  placeholder="Username"
+                />
+              </div>
+
+              <div class="border">
+                <div class="dot"></div>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Email Id"
+                />
+              </div>
+
+              <div class="border">
+                <div class="dot"></div>
+                <input
+                  type="text"
+                  id="country"
+                  name="country"
+                  placeholder="Country"
+                />
+              </div>
+              <div class="border">
+                <div class="dot"></div>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Password"
+                />
+                <button id="veiwbtn" type="button" onclick="passwordview()">
+                  view
+                </button>
+              </div>
+
+              <div class="border">
+                <div class="dot"></div>
+                <input
+                  type="password"
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  placeholder="Confirm Password"
+                />
+              </div>
+              <button class="btn3" type="submit" id="registerBtn">
+                Register
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="tablecontainer">
+        <table id="tabledata">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>email</th>
+              <th>Country</th>
+              <th>Password</th>
+              <th>confirm password</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="tablebodydata"></tbody>
+        </table>
+      </div>
     </div>
+    <script>
+      const form = document.getElementById("registrationForm");
+      const usernameInput = document.getElementById("username");
+      const emailInput = document.getElementById("email");
+      const countryInput = document.getElementById("country");
+      const passwordInput = document.getElementById("password");
+      const confirmPasswordInput = document.getElementById("confirmPassword");
+      const registerBtn = document.getElementById("registerBtn");
+      const editbtn = document.getElementById("editbtn");
+      const deletebtn = document.getElementById("deletebtn");
+      const tableBody = document.getElementById("tablebodydata");
+      let userData = [];
+      let userItem;
 
-    <div class="border">
-      <div class="dot"></div>
-      <input type="email" id="email" name="email" placeholder="Email Id">
-    </div>
+      function passwordview() {
+        const input = document.getElementById("password");
+        console.log(typeof input.type);
 
-    <div class="border">
-      <div class="dot"></div>
-      <input type="text" id="country" name="country" placeholder="Country">
-    </div>
-
-    <div class="border">
-      <div class="dot"></div>
-      <input type="text" id="phone" name="phone" placeholder="Phone Number">
-    </div>
-
-    <div class="border">
-      <div class="dot"></div>
-      <input type="password" id="password" name="password" placeholder="Password">
-      <button id="veiwbtn" type="button" onclick="passwordview()">view</button>
-    </div>
-
-    <div class="border">
-      <div class="dot"></div>
-      <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password">
-    </div>
-    <button class=btn3 type="submit" id="registerBtn">Register</button>
-    <!-- <button type="button" onclick="clearform()">Clear form</button> -->
-   </div>
-</div>
-</form>
-</div>
-<div class="tablecontainer">
-  <table id="tabledata"  >
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>email</th>
-            <th>Country</th>
-            <th>Password</th>
-            <th>confirm password</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody id="tablebodydata">
-    </tbody>
-    </table>
-  </div>
-</div>
-   <script>
-    function passwordview(){
-      const input = document.getElementById("password");
-      console.log(typeof input.type);
-
-       if(input.type==="password"){
-         input.type = "text";
-       }  
-       else{
-        input.type="password";
-       }
-    }
-    let registerBtn = document.querySelector("#registerBtn");
-    let userData = [];
-    let userItem
-
-    function editHandler(index){
-            userItem = userData[index]
-            console.log("userItem ==>", userItem, registerBtn);
-
-            if(userItem){
-              registerBtn.innerHTML = "Edit User"
-            }
+        if (input.type === "password") {
+          input.type = "text";
+        } else {
+          input.type = "password";
+        }
       }
 
-    function submitForm(event) {
-      event.preventDefault();
+      function editHandler(index) {
+        userItem = userData[index];
+        console.log("userItem ==>", userItem, registerBtn);
 
-      var table = document.getElementById("tablebodydata");
-      const formclear = document.getElementById("registrationForm");
-      // alert("form submitted")
-      var username = document.getElementById("username").value;
-      var email = document.getElementById("email").value;
-      var country = document.getElementById("country").value;
-      var password = document.getElementById("password").value;
-      var confirmpassword = document.getElementById("confirmPassword").value;
-      console.log(confirmpassword);
-      
-      userData = [{
-            name : username,
-            emailEl: email,
-            countryEl: country,
-            passwordEl: password,
-            confirmpass: confirmpassword
-      }]
-       
+        if (userItem) {
+          usernameInput.value = userItem.name;
+          emailInput.value = userItem.emailEl;
+          countryInput.value = userItem.countryEl;
+          passwordInput.value = userItem.passwordEl;
+          confirmPasswordInput.value = userItem.confirmpass;
+          registerBtn.innerHTML = "Edit User";
 
-      userData?.length > 0 && userData?.forEach((data, i)=>{
-            tablebodydata.innerHTML +=`
+          registerBtn.onclick = function () {
+            userData[index] = {
+              name: usernameInput.value,
+              emailEl: emailInput.value,
+              countryEl: countryInput.value,
+              passwordEl: passwordInput.value,
+              confirmpass: confirmPasswordInput.value,
+            };
+
+            tableBody.innerHTML = "";
+
+            tablevalues();
+
+            form.reset();
+            registerBtn.innerHTML = "Register";
+            registerBtn.onclick = submitForm;
+          };
+        }
+      }
+
+      function deleteHandler(index) {
+        userData.splice(index, 1);
+        tablevalues();
+      }
+
+      function tablevalues() {
+        userData?.length > 0 &&
+          userData?.forEach((data, i) => {
+            tablebodydata.innerHTML += `
             <tr>
             <td>${data.name}</td>
             <td>${data.emailEl}</td>
@@ -124,77 +165,30 @@
             <td>${data.passwordEl}</td>
             <td>${data.confirmpass}</td>
             <td><button id="editbtn" onclick="editHandler(${i})"><i class="fa-solid fa-pencil"></i></td></button>
-            <td><button id="deletebtn"><i class="fa-solid fa-trash"></i></td></button>
+            <td><button id="deletebtn" onclick="deleteHandler(${i})"><i class="fa-solid fa-trash"></i></td></button>
            </tr>  
-            `
+            `;
           });
+      }
 
-          formclear.reset();
+      console.log("userData ===> ", userData);
 
-          const editbtn = document.getElementById("editbtn");
-          const deletebtn = document.getElementById("deletebtn");
-          function editHandler(index){
-            let userItem = userData[index]
-            console.log("userItem ==>", userItem);
-
-            //  var editableContent = document.getElementById('tablebodydata');
-            //  var currentContent = editableContent.textContent;
-            //  var newContent = prompt('Enter the new content:', currentContent);
-            //     if (newContent !== null) {
-            //           editableContent.textContent = newContent;
-            //     }
-          }
-          
-          //      editbtn.addEventListener('click',function(){
-    //          var editableContent = document.getElementById('tablebodydata');
-    //          var currentContent = editableContent.textContent;
-    //          var newContent = prompt('Enter the new content:', currentContent);
-    //        if (newContent !== null) {
-    //             editableContent.textContent = newContent;
-    //       }
-    //  });
-
-     deletebtn.addEventListener('click',function(e){
-          var deleteContent = document.getElementById('tablebodydata');
-          var currentdata = deleteContent.textContent;
-          var entercontent = prompt("enter the row you want to delete");
-             if(entercontent !== null){
-                deleteContent.remove(index);
-             }
-     });
-
-      // const formclear = document.getElementById("registrationForm");
-      
-      // alert("form submitted")
-
-      // var table = document.getElementById("tablebodydata");
-
-      // var row = document.createElement("tr");
-      // var col1 = document.createElement("td");
-      // var col2 = document.createElement("td");
-      // var col3 = document.createElement("td");
-      // var col4 = document.createElement("td");
-      // var col5 = document.createElement("td");
-
-      // col1.textContent = username
-      // row.appendChild(col1)
-
-      // col2.textContent = country
-      //  row.append(col2);
-
-      // col3.textContent = email
-      // row.appendChild(col3)
-
-      // col4.textContent = password;
-      // row.appendChild(col4)
-
-      // col5.textContent = confirmpassword
-      // row.appendChild(col5);
-
-      // table.appendChild(row)
-      // console.log(email);  
-      // formclear.reset();
-    }
-  </script>
-</body>
+      function submitForm(event) {
+        event.preventDefault();
+        if (!userItem) {
+          userData.push({
+            name: usernameInput?.value,
+            emailEl: emailInput?.value,
+            countryEl: countryInput?.value,
+            passwordEl: passwordInput?.value,
+            confirmpass: confirmPasswordInput?.value,
+          });
+        }
+        console.log("userData ===> ", userData);
+        tablebodydata.innerHTML = ""
+        tablevalues();
+        form.reset();
+      }
+    </script>
+  </body>
 </html>
