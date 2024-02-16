@@ -120,7 +120,6 @@
       function editHandler(index) {
         userItem = userData[index];
         console.log("userItem ==>", userItem, registerBtn);
-
         if (userItem) {
           usernameInput.value = userItem.name;
           emailInput.value = userItem.emailEl;
@@ -152,6 +151,7 @@
       function deleteHandler(index) {
         userData.splice(index, 1);
         tablevalues();
+        console.log(userData);
       }
 
       function tablevalues() {
@@ -171,7 +171,7 @@
           });
       }
 
-      console.log("userData ===> ", userData);
+      // console.log("userData ===> ", userData);
 
       function submitForm(event) {
         event.preventDefault();
@@ -183,7 +183,7 @@
             passwordEl: passwordInput?.value,
             confirmpass: confirmPasswordInput?.value,
           });
-        }
+        }  
         console.log("userData ===> ", userData);
         tablebodydata.innerHTML = ""
         tablevalues();
