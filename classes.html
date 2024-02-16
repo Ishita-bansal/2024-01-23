@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
+        // let p = document.getElementById("demo");
+        // class car{
+        //     constructor(name,year){
+        //         this.name = name;
+        //         this.year = year;
+        //     }
+       
+        //     age(){
+        //     const date = new Date();
+        //     return date.getFullYear() - this.year;
+        // }
+
+    //     age(x){
+    //     return x - this.year;
+    //    }
+    // }
+    //    const mycar1 = new car("ford",2014);
+    //    const mycar2 = new car("Audi",2019);
+    //    console.log(`car Name = ${mycar1.name} , year = ${mycar1.year}`);
+    //    console.log(`car Name = ${mycar2.name} , year = ${mycar2.year}`);
+    //    console.log( ` My car is  ${mycar1.age()} years old`);
+    //    console.log( ` My car is  ${mycar2.age()} years old`);
+    //    p.innerHTML = mycar1.name + " " + mycar2.name;
+    //    p.innerHTML = ` My car is  ${mycar1.age()} years old`;
+    //    p.innerHTML = ` My car is  ${mycar2.age()} years old`;
+
+ //    date = new Date(); // this will give error
+    //  const date = new Date();
+    //    let year = date.getFullYear();
+
+    //    document.getElementById("demo").innerHTML="My car is " + mycar2.age(year) + " years old.";
+
+    // class Inheritance
+            
+//     class car {
+//         constructor(brand){
+//             this.carname = brand;
+//         }
+//         present(){
+//             return 'I have a ' + this.carname;
+//         }
+//     }
+//    class Model extends car{
+//      constructor(brand,mod){
+//         super(brand);
+//         this.model = mod;
+//       }
+//       show(){
+//         return  this.present() + " , it is a" + this.model;
+//       }
+//    }
+//      let mycar = new Model("ford" , "mustang");
+//      document.getElementById("demo").innerHTML = mycar.show();
+
+     // Getters and setters
+    // class car{
+    //          constructor(brand){
+    //             this.carname = brand;
+    //          }
+    //          get cnam(){
+    //             return this.carname;
+    //          }
+
+    //          set cnam(x){
+    //             this.carname = x;
+    //          }
+    //      }
+    // const mycar = new car("ford");
+    // document.getElementById("demo").innerHTML = mycar.cnam;
+
+    // setter to change the carname to volvo
+    class car{
+        constructor(brand){
+            this.carname = brand;
+        }
+        get cnam(){
+            return this.carname;
+        }
+        set cnam(x){
+            this.carname = x;
+        }
+    }
+    const mycar = new car("Ford");
+    mycar.carname = "volvo";
+    document.getElementById("demo").innerHTML = mycar.cnam;
+    </script>
+</body>
+</html>
